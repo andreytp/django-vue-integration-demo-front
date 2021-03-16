@@ -13,7 +13,7 @@
       v-model="password"
     />
     <input type="submit" value="Login" />
-    <router-link to="/sepulkas">Look at sepulkas base</router-link>
+    <!-- <router-link to="/sepulkas">Look at sepulkas base</router-link> -->
   </form>
 </template>
 <script>
@@ -27,8 +27,10 @@ export default {
     };
   },
   methods: {
-    submit() {
-      return this.LOGIN(this);
+    async submit() {
+      await this.LOGIN(this);
+
+      this.$router.push('/');
     },
     ...mapActions('auth', ['LOGIN']),
   },
